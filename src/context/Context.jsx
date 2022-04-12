@@ -10,7 +10,13 @@ import {
 } from "firebase/auth";
 
 const ContextProvider = createContext();
-
+const options = {
+  method: "GET",
+  headers: {
+    "X-RapidAPI-Host": "movies-app1.p.rapidapi.com",
+    "X-RapidAPI-Key": process.env.REACT_APP_RAPIDAPI_KEY,
+  },
+};
 const Context = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [haveAccount, setHaveAccount] = useState(false);
@@ -20,6 +26,7 @@ const Context = ({ children }) => {
     passwordOne: "",
     passwordTwo: "",
   });
+  const [allMovies, setAllMovies] = useState([]);
   //send User for Email Verification
   const sendUserEmailVerification = () => {
     sendEmailVerification(auth.currentUser).then(() => {
@@ -43,10 +50,10 @@ const Context = ({ children }) => {
           person.passwordOne
         )
           .then((userCredential) => {
-            // Signed in
+            // // Signed in
             const user = userCredential.user;
-            // console.log(user);
-            // ...
+            // // console.log(user);
+            // // ...
             setHaveAccount(true);
             if (user) {
               sendUserEmailVerification();
@@ -54,8 +61,8 @@ const Context = ({ children }) => {
             window.location.assign("/movies");
           })
           .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
+            // const errorCode = error.code;
+            // const errorMessage = error.message;
             console.log(error.message);
             // ..
           });
@@ -68,15 +75,16 @@ const Context = ({ children }) => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
-        const user = userCredential.user;
+        // const user = userCredential.user;
 
         window.location.assign("/movies");
 
         // ...
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
+        // const errorCode = error.code;
+        // const errorMessage = error.message;
+        console.log(error.message);
       });
   };
   //set new password
@@ -93,6 +101,22 @@ const Context = ({ children }) => {
         // ..
       });
   };
+  //fetching movie api
+  const fetchApi = async () => {
+    try {
+      const response = await fetch(
+        "https://movies-app1.p.rapidapi.com/api/movies",
+        options
+      );
+      const data = await response.json();
+      if (data) {
+        console.log(data.results);
+        setAllMovies(data.results);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <ContextProvider.Provider
       value={{
@@ -104,6 +128,8 @@ const Context = ({ children }) => {
         setHaveAccount,
         loginFunction,
         setNewPassword,
+        allMovies,
+        fetchApi,
       }}
     >
       {children}

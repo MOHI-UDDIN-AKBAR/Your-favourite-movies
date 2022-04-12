@@ -1,0 +1,15 @@
+@mixin flex($justify, $direction) {
+  display: flex;
+  justify-content: $justify;
+  align-items: center;
+  flex-direction: $direction;
+  flex-wrap: wrap;
+}
+body {
+  // background-color: #f3fafb;
+  background-color: #9fa5b5;
+  // box-sizing: border-box;
+  // background-image: url("https://images.pexels.com/photos/65437/pexels-photo-65437.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+  // // background-size: cover;
+  // // background-repeat: no-repeat;
+}

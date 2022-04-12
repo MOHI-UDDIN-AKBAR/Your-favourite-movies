@@ -1,0 +1,130 @@
+.logInForm {
+  width: 590px;
+  padding: 6rem 0rem;
+  background-color: white;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.logInForm .logInWithGoogle {
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  border: 1px solid #dee9eb;
+  border-radius: 7px;
+  padding: 0.9rem 2rem;
+  cursor: pointer;
+}
+.logInForm .logInWithGoogle span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  font-size: 20px;
+  color: #252f44;
+  font-weight: bold;
+}
+.logInForm .logInWithGoogle span:first-child {
+  margin-right: 9px;
+}
+.logInForm .or {
+  font-size: 20px;
+  padding: 1rem 0;
+  margin: 30px;
+  color: #7f7f82;
+}
+.logInForm .form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.logInForm .form .email, .logInForm .form .password {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  position: relative;
+  width: 100%;
+}
+.logInForm .form .email input, .logInForm .form .password input {
+  width: 70%;
+  font-size: 20px;
+  padding: 0.7rem 1rem;
+  border: 1px solid #dee9eb;
+  color: #252f44;
+  border-radius: 5px;
+}
+.logInForm .form .email input::-moz-placeholder, .logInForm .form .password input::-moz-placeholder {
+  color: #848c94;
+}
+.logInForm .form .email input:-ms-input-placeholder, .logInForm .form .password input:-ms-input-placeholder {
+  color: #848c94;
+}
+.logInForm .form .email input::placeholder, .logInForm .form .password input::placeholder {
+  color: #848c94;
+}
+.logInForm .form .email input:focus, .logInForm .form .password input:focus {
+  outline: none;
+}
+.logInForm .form .email label, .logInForm .form .password label {
+  width: 70%;
+  position: relative;
+  text-align: left;
+  margin-bottom: 5px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #252f44;
+  background-color: white;
+}
+.logInForm .form .password {
+  margin-top: 40px;
+}
+.logInForm .forgetPassword {
+  color: rgb(109, 109, 232);
+  font-size: 18px;
+  font-weight: bold;
+  padding: 0.5rem 0;
+  transform: translateX(-100%);
+  cursor: pointer;
+}
+.logInForm button {
+  width: 70%;
+  font-size: 22px;
+  padding: 0.8rem 1rem;
+  margin-top: 20px;
+  border: none;
+  background-color: #252f44;
+  color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+.logInForm .forSignUp {
+  margin-top: 50px;
+  color: #252f44;
+  font-weight: bold;
+}
+.logInForm .forSignUp .LinkToSignUpForm {
+  color: rgb(109, 109, 232);
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+  .logInForm {
+    width: 350px;
+    padding: 3rem 0rem;
+  }
+}/*# sourceMappingURL=styleForLogInForm.css.map */

@@ -1,0 +1,124 @@
+// variables
+$Color-One: white;
+$Color-Two: #dee9eb;
+$Color-Three: #252f44;
+$Color-Four: #7f7f82;
+$Color-Five: #848c94;
+$Color-Six: rgb(109, 109, 232);
+@mixin flex($justify, $direction) {
+  display: flex;
+  justify-content: $justify;
+  align-items: center;
+  flex-direction: $direction;
+  flex-wrap: wrap;
+}
+.logInForm {
+  width: 590px;
+  padding: 6rem 0rem;
+  background-color: $Color-One;
+  margin: 0 auto;
+  @include flex(center, column);
+  .logInWithGoogle {
+    width: 70%;
+    @include flex(center, row);
+    border: 1px solid $Color-Two;
+    border-radius: 7px;
+    padding: 0.9rem 2rem;
+    span {
+      @include flex(center, row);
+      font-size: 20px;
+      color: $Color-Three;
+      font-weight: bold;
+      &:first-child {
+        margin-right: 9px;
+      }
+    }
+    cursor: pointer;
+  }
+  .or {
+    font-size: 20px;
+    padding: 1rem 0;
+    margin: 30px;
+    color: $Color-Four;
+  }
+  .form {
+    @include flex(center, column);
+    width: 100%;
+    .email {
+      @include flex(center, column);
+      position: relative;
+      width: 100%;
+      input {
+        width: 70%;
+        font-size: 20px;
+        padding: 0.7rem 1rem;
+        border: 1px solid $Color-Two;
+        color: $Color-Three;
+        border-radius: 5px;
+        &::placeholder {
+          color: $Color-Five;
+        }
+        &:focus {
+          outline: none;
+        }
+      }
+      label {
+        // position: absolute;
+        width: 70%;
+        position: relative;
+        text-align: left;
+        // transform: translateX(-50%);
+        // top: -30px;
+        // left: 0px;
+        margin-bottom: 5px;
+        font-size: 20px;
+        font-weight: bold;
+        color: $Color-Three;
+        background-color: $Color-One;
+      }
+    }
+    .password {
+      @extend .email;
+      margin-top: 40px;
+    }
+  }
+  .forgetPassword {
+    color: $Color-Six;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 0.5rem 0;
+    // display: flex;
+    // align-items: flex-start;
+    transform: translateX(-100%);
+    cursor: pointer;
+  }
+  button {
+    width: 70%;
+    font-size: 22px;
+    padding: 0.8rem 1rem;
+    margin-top: 20px;
+    border: none;
+    background-color: $Color-Three;
+    color: $Color-One;
+    border-radius: 5px;
+    box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+  }
+  .forSignUp {
+    margin-top: 50px;
+    color: $Color-Three;
+    font-weight: bold;
+    .LinkToSignUpForm {
+      color: $Color-Six;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  }
+}
+@media screen and (max-width: 600px) {
+  .logInForm {
+    width: 350px;
+    padding: 3rem 0rem;
+  }
+}

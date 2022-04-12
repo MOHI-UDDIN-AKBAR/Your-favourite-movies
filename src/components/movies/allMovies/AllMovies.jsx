@@ -4,7 +4,7 @@ import { useResultContext } from "../../../context/Context";
 const AllMovies = () => {
   const { allMovies, fetchApi } = useResultContext();
   useEffect(() => {
-    // fetchApi();
+    fetchApi();
   }, []);
   return (
     <>

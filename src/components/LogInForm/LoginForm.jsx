@@ -6,12 +6,17 @@ import { useResultContext } from "../../context/Context";
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { loginFunction } = useResultContext();
+  const { loginFunction, setNewPassword } = useResultContext();
   const handleLogin = () => {
     console.log(email, password);
     if (email && password) {
       loginFunction(email, password);
+      setEmail("");
+      setPassword("");
     }
+  };
+  const handleForgetPassword = () => {
+    setNewPassword(email);
   };
   return (
     <div className="logInForm">
@@ -45,7 +50,9 @@ const LoginForm = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <span className="forgetPassword">Forget Password?</span>
+        <span className="forgetPassword" onClick={handleForgetPassword}>
+          Forget Password?
+        </span>
         <button type="button" onClick={handleLogin}>
           Log in
         </button>

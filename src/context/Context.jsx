@@ -2,7 +2,12 @@ import React, { useState } from "react";
 import { createContext, useContext } from "react";
 import { auth } from "../firebase/firebase";
 import createUserWithEmailAndPassword from "../firebase/firebase";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { sendPasswordResetEmail } from "firebase/auth";
+
+import {
+  sendEmailVerification,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 
 const ContextProvider = createContext();
 
@@ -15,6 +20,14 @@ const Context = ({ children }) => {
     passwordOne: "",
     passwordTwo: "",
   });
+  //send User for Email Verification
+  const sendUserEmailVerification = () => {
+    sendEmailVerification(auth.currentUser).then(() => {
+      // Email verification sent!
+      // ...
+      console.log(auth.currentUser);
+    });
+  };
   //creating new user
   const createNewUser = async () => {
     if (
@@ -32,9 +45,12 @@ const Context = ({ children }) => {
           .then((userCredential) => {
             // Signed in
             const user = userCredential.user;
-            console.log(user);
+            // console.log(user);
             // ...
             setHaveAccount(true);
+            if (user) {
+              sendUserEmailVerification();
+            }
             window.location.assign("/movies");
           })
           .catch((error) => {
@@ -46,12 +62,14 @@ const Context = ({ children }) => {
       }
     }
   };
+
   //login function for existing user
   const loginFunction = (email, password) => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
+
         window.location.assign("/movies");
 
         // ...
@@ -59,6 +77,20 @@ const Context = ({ children }) => {
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
+      });
+  };
+  //set new password
+  const setNewPassword = (email) => {
+    sendPasswordResetEmail(auth, email)
+      .then(() => {
+        // Password reset email sent!
+        // ..
+        console.log("password sended");
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // ..
       });
   };
   return (
@@ -71,6 +103,7 @@ const Context = ({ children }) => {
         haveAccount,
         setHaveAccount,
         loginFunction,
+        setNewPassword,
       }}
     >
       {children}

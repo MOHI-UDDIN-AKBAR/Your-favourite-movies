@@ -1,13 +1,16 @@
 import React from "react";
-import AllMovies from "./components/movies/moviePage/MoviePage";
-import SignUpPage from "./components/signUp/SignUpPage";
-import LogInPage from "./components/logInPage/LogInPage";
+import Switch from "./components/switch/Switch";
+import { BrowserRouter as Router } from "react-router-dom";
+import Context from "./context/Context";
+
 const App = () => {
   return (
     <>
-      <LogInPage />
-      <SignUpPage />
-      <AllMovies />
+      <Context>
+        <Router>
+          <Switch />
+        </Router>
+      </Context>
     </>
   );
 };

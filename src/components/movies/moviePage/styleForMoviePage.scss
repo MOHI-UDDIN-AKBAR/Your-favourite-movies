@@ -27,6 +27,7 @@
       @include flex(center, row);
       margin: 0 50px;
       padding: 0 1rem;
+
       .icon {
         font-size: 30px;
         margin: auto 0;
@@ -36,6 +37,18 @@
         font-size: 20px;
         margin-left: 10px;
         font-family: "Ms Madi", cursive;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .moviePage {
+    .appBar {
+      .identity {
+        margin: 0px;
+        margin-right: 5px;
+        padding: 0 0.5rem;
       }
     }
   }

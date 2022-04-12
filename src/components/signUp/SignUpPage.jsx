@@ -1,11 +1,30 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./styleForSignUp.css";
+import { useResultContext } from "../../context/Context";
+import { Link } from "react-router-dom";
+import MoviePage from "../movies/moviePage/MoviePage";
 const SignUpPage = () => {
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [passwordOne, setPasswordOne] = useState("");
-  const [passwordTwo, setPasswordTwo] = useState("");
-  const addPerson = () => {};
+  const {
+    isLoading,
+    person,
+    setPerson,
+    createNewUser,
+    haveAccount,
+    setHaveAccount,
+  } = useResultContext();
+
+  const addPerson = () => {
+    if (person) {
+      createNewUser(person);
+      setPerson({
+        username: "",
+        email: "",
+        passwordOne: "",
+        passwordTwo: "",
+      });
+    }
+  };
+
   return (
     <>
       <div className="signUpPage">
@@ -17,18 +36,20 @@ const SignUpPage = () => {
               type="text"
               id="username"
               placeholder="Enter you username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              value={person.username}
+              onChange={(e) =>
+                setPerson({ ...person, username: e.target.value })
+              }
             />
           </div>
           <div className="email">
-            <label htmlFor="email">Email</label>
+            <label htmlFor="emailTwo">Email</label>
             <input
               type="email"
-              id="email"
+              id="emailTwo"
               placeholder="Enter you email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={person.email}
+              onChange={(e) => setPerson({ ...person, email: e.target.value })}
             />
           </div>
           <div className="password">
@@ -37,8 +58,10 @@ const SignUpPage = () => {
               type="password"
               id="passwordOne"
               placeholder="Enter password"
-              value={passwordOne}
-              onChange={(e) => setPasswordOne(e.target.value)}
+              value={person.passwordOne}
+              onChange={(e) =>
+                setPerson({ ...person, passwordOne: e.target.value })
+              }
             />
           </div>
           <div className="password">
@@ -47,10 +70,13 @@ const SignUpPage = () => {
               type="password"
               id="passwordTwo"
               placeholder="Retype your password"
-              value={passwordTwo}
-              onChange={(e) => setPasswordTwo(e.target.value)}
+              value={person.passwordTwo}
+              onChange={(e) =>
+                setPerson({ ...person, passwordTwo: e.target.value })
+              }
             />
           </div>
+
           <button onClick={addPerson}>Sign Up</button>
         </div>
       </div>

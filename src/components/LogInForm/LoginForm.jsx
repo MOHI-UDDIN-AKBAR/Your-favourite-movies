@@ -1,10 +1,18 @@
 import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
+import { Link } from "react-router-dom";
 import "./styleForLogInForm.css";
+import { useResultContext } from "../../context/Context";
 const LoginForm = () => {
-  const { email, setEmail } = useState("");
-  const { password, setPassword } = useState("");
-  const handleLogin = () => {};
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const { loginFunction } = useResultContext();
+  const handleLogin = () => {
+    console.log(email, password);
+    if (email && password) {
+      loginFunction(email, password);
+    }
+  };
   return (
     <div className="logInForm">
       <div className="logInWithGoogle">
@@ -43,7 +51,16 @@ const LoginForm = () => {
         </button>
       </div>
       <span className="forSignUp">
-        Don't have an account ?<span className="LinkToSignUpForm">Sign up</span>
+        Don't have an account ?
+        <span className="LinkToSignUpForm">
+          {/* <Link to={} */}
+          <Link
+            to={"/signUp"}
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            Sign up
+          </Link>
+        </span>
       </span>
     </div>
   );

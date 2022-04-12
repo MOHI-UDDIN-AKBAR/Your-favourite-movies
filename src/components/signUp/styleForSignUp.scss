@@ -15,11 +15,13 @@ $Color-Six: rgb(109, 109, 232);
 .signUpPage {
   height: 100vh;
   @include flex(center, column);
+
   .form {
     width: 590px;
     padding: 6rem 0rem;
     margin: 0 auto;
     background-color: $Color-One;
+    box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.1);
     h1 {
       color: $Color-Six;
       width: fit-content;

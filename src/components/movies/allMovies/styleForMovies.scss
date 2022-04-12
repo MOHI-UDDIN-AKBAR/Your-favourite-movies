@@ -1,0 +1,41 @@
+@mixin flex($justify, $direction) {
+  display: flex;
+  justify-content: $justify;
+  align-items: center;
+  flex-direction: $direction;
+  flex-wrap: wrap;
+}
+.movies {
+  width: 100%;
+  padding: 1rem 0rem;
+  margin-top: 50px;
+  @include flex(center, row);
+  .eachMovies {
+    width: 350px;
+    margin: 20px 20px;
+    img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+    }
+    .movieName {
+      font-size: 20px;
+      width: 98%;
+      text-align: left;
+      margin: 10px auto;
+      color: #607d8b;
+    }
+    .yearAndRating {
+      margin: 5px 10px;
+      @include flex(space-between, row);
+      color: #827717;
+      font-weight: bold;
+      span {
+        &:last-child {
+          color: #525b90;
+          //   color: #b5b18d;
+        }
+      }
+    }
+  }
+}

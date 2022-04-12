@@ -1,0 +1,88 @@
+$Color-One: white;
+$Color-Two: #dee9eb;
+$Color-Three: #252f44;
+$Color-Four: #7f7f82;
+$Color-Five: #848c94;
+$Color-Six: rgb(109, 109, 232);
+
+@mixin flex($justify, $direction) {
+  display: flex;
+  justify-content: $justify;
+  align-items: center;
+  flex-direction: $direction;
+  flex-wrap: wrap;
+}
+.signUpPage {
+  height: 100vh;
+  @include flex(center, column);
+  .form {
+    width: 590px;
+    padding: 6rem 0rem;
+    margin: 0 auto;
+    background-color: $Color-One;
+    h1 {
+      color: $Color-Six;
+      width: fit-content;
+      margin: 0 auto;
+      margin-bottom: 40px;
+    }
+    .name {
+      @include flex(center, column);
+      position: relative;
+      width: 100%;
+      margin-bottom: 20px;
+      input {
+        width: 70%;
+        font-size: 20px;
+        padding: 0.7rem 1rem;
+        border: 1px solid $Color-Two;
+        color: $Color-Three;
+        border-radius: 5px;
+        &::placeholder {
+          color: $Color-Five;
+        }
+        &:focus {
+          outline: none;
+        }
+      }
+      label {
+        width: 70%;
+        position: relative;
+        text-align: left;
+        margin-bottom: 5px;
+        font-size: 20px;
+        font-weight: bold;
+        color: $Color-Three;
+        background-color: $Color-One;
+      }
+    }
+    .email {
+      @extend .name;
+    }
+    .password {
+      @extend .name;
+    }
+    button {
+      width: 70%;
+      font-size: 22px;
+      padding: 0.8rem 1rem;
+      border: none;
+      background-color: $Color-Three;
+      color: $Color-One;
+      border-radius: 5px;
+      box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      @include flex(center, row);
+      margin: auto;
+      margin-top: 30px;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .signUpPage {
+    .form {
+      width: 350px;
+    }
+  }
+}

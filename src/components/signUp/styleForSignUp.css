@@ -1,0 +1,86 @@
+.signUpPage {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.signUpPage .form {
+  width: 590px;
+  padding: 6rem 0rem;
+  margin: 0 auto;
+  background-color: white;
+}
+.signUpPage .form h1 {
+  color: rgb(109, 109, 232);
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 auto;
+  margin-bottom: 40px;
+}
+.signUpPage .form .name, .signUpPage .form .password, .signUpPage .form .email {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  position: relative;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.signUpPage .form .name input, .signUpPage .form .password input, .signUpPage .form .email input {
+  width: 70%;
+  font-size: 20px;
+  padding: 0.7rem 1rem;
+  border: 1px solid #dee9eb;
+  color: #252f44;
+  border-radius: 5px;
+}
+.signUpPage .form .name input::-moz-placeholder, .signUpPage .form .password input::-moz-placeholder, .signUpPage .form .email input::-moz-placeholder {
+  color: #848c94;
+}
+.signUpPage .form .name input:-ms-input-placeholder, .signUpPage .form .password input:-ms-input-placeholder, .signUpPage .form .email input:-ms-input-placeholder {
+  color: #848c94;
+}
+.signUpPage .form .name input::placeholder, .signUpPage .form .password input::placeholder, .signUpPage .form .email input::placeholder {
+  color: #848c94;
+}
+.signUpPage .form .name input:focus, .signUpPage .form .password input:focus, .signUpPage .form .email input:focus {
+  outline: none;
+}
+.signUpPage .form .name label, .signUpPage .form .password label, .signUpPage .form .email label {
+  width: 70%;
+  position: relative;
+  text-align: left;
+  margin-bottom: 5px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #252f44;
+  background-color: white;
+}
+.signUpPage .form button {
+  width: 70%;
+  font-size: 22px;
+  padding: 0.8rem 1rem;
+  border: none;
+  background-color: #252f44;
+  color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: auto;
+  margin-top: 30px;
+}
+
+@media screen and (max-width: 600px) {
+  .signUpPage .form {
+    width: 350px;
+  }
+}/*# sourceMappingURL=styleForSignUp.css.map */

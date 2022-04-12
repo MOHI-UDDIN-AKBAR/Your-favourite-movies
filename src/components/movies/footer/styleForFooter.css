@@ -1,0 +1,40 @@
+.footer {
+  width: 100%;
+  padding: 1rem 0;
+  margin-top: 100px;
+}
+.footer .logo {
+  text-align: center;
+}
+.footer .logo h1 {
+  margin: 0 auto;
+  color: rgb(240, 115, 115);
+  font-family: "Babylonica", cursive;
+}
+.footer .icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+.footer .icons .icon {
+  font-size: 27px;
+  color: #1f2633;
+  margin: 1rem;
+  cursor: pointer;
+}
+.footer .objects {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.footer .objects span {
+  padding: 0.5rem 1.5rem;
+}
+.footer h4 {
+  text-align: center;
+}/*# sourceMappingURL=styleForFooter.css.map */

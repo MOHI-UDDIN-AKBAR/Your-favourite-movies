@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Babylonica&display=swap");
+.moviePage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  background-color: white;
+}
+.moviePage .appBar {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.moviePage .appBar h1 {
+  padding: 0 1rem;
+  margin: auto 1px;
+  font-weight: 620;
+  color: rgb(240, 115, 115);
+  font-family: "Babylonica", cursive;
+  cursor: pointer;
+}
+.moviePage .appBar .identity {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0 50px;
+  padding: 0 1rem;
+}
+.moviePage .appBar .identity .icon {
+  font-size: 30px;
+  margin: auto 0;
+  padding-top: 0.3rem;
+}
+.moviePage .appBar .identity .userName {
+  font-size: 20px;
+  margin-left: 10px;
+  font-family: "Ms Madi", cursive;
+}/*# sourceMappingURL=styleForMoviePage.css.map */

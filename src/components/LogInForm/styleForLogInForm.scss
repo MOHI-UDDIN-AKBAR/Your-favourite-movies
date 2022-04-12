@@ -1,10 +1,10 @@
-// variables
 $Color-One: white;
 $Color-Two: #dee9eb;
 $Color-Three: #252f44;
 $Color-Four: #7f7f82;
 $Color-Five: #848c94;
 $Color-Six: rgb(109, 109, 232);
+
 @mixin flex($justify, $direction) {
   display: flex;
   justify-content: $justify;

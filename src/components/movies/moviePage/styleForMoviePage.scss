@@ -1,6 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Babylonica&display=swap");
 
+$Color-One: white;
+$Color-Two: #dee9eb;
+$Color-Three: #252f44;
+$Color-Four: #7f7f82;
+$Color-Five: #848c94;
+$Color-Six: rgb(109, 109, 232);
+
 @mixin flex($justify, $direction) {
   display: flex;
   justify-content: $justify;
@@ -15,14 +22,39 @@
     width: 100%;
     height: 70px;
     @include flex(space-between, row);
-    h1 {
-      padding: 0 1rem;
-      margin: auto 1px;
-      font-weight: 620;
-      color: rgb(240, 115, 115);
-      font-family: "Babylonica", cursive;
-      cursor: pointer;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 2;
+    .logoAndSearchBar {
+      @include flex(space-between, row);
+      h1 {
+        padding: 0 1rem;
+        margin: auto 1px;
+        font-weight: 620;
+        color: rgb(240, 115, 115);
+        font-family: "Babylonica", cursive;
+        cursor: pointer;
+      }
+      .searchBar {
+        input {
+          width: 200px;
+          font-size: 20px;
+          padding: 0.4rem 0.6rem;
+          border: 2px solid $Color-Two;
+          color: $Color-Three;
+          border-radius: 5px;
+          margin-left: 0px;
+          &::placeholder {
+            color: $Color-Five;
+          }
+          &:focus {
+            outline: none;
+          }
+        }
+      }
     }
+
     .identity {
       @include flex(center, row);
       margin: 0 50px;
@@ -42,14 +74,54 @@
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
   .moviePage {
     .appBar {
+      .logoAndSearchBar {
+        width: 100%;
+        .searchBar {
+          width: 50%;
+          input {
+            width: 90%;
+            margin-right: 5px;
+            &:focus {
+              animation: border 0.3s linear forwards;
+            }
+          }
+        }
+      }
       .identity {
+        display: none;
         margin: 0px;
         margin-right: 5px;
         padding: 0 0.5rem;
       }
     }
+  }
+}
+@media screen and (min-width: 800px) {
+  .logoAndSearchBar {
+    width: 65%;
+    @include flex(center, row);
+    .searchBar {
+      width: 60%;
+      input {
+        &:focus {
+          animation: width 0.3s linear forwards;
+        }
+      }
+    }
+  }
+}
+
+@keyframes border {
+  to {
+    border: 2px solid #c2e2e8;
+  }
+}
+@keyframes width {
+  to {
+    width: 300px;
+    border: 2px solid #c2e2e8;
   }
 }

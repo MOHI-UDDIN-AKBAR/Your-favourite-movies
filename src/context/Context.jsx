@@ -17,6 +17,7 @@ const options = {
     "X-RapidAPI-Key": process.env.REACT_APP_RAPIDAPI_KEY,
   },
 };
+
 const Context = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [haveAccount, setHaveAccount] = useState(false);
@@ -27,6 +28,8 @@ const Context = ({ children }) => {
     passwordTwo: "",
   });
   const [allMovies, setAllMovies] = useState([]);
+  const [search, setSearch] = useState("");
+  const [randomMovie, setRandomMovies] = useState([]);
   //send User for Email Verification
   const sendUserEmailVerification = () => {
     sendEmailVerification(auth.currentUser).then(() => {
@@ -110,13 +113,44 @@ const Context = ({ children }) => {
       );
       const data = await response.json();
       if (data) {
-        console.log(data.results);
+        // console.log(data.results);
         setAllMovies(data.results);
+        //getting a random number
+        const randomNumber = Math.floor(
+          Math.random() * (data.results.length - 0 + 1)
+        );
+        if (randomNumber) {
+          randomMovie.push(data.results[randomNumber]);
+        }
+
+        if (search) {
+          // console.log("hello");
+          getMoviesBySearching();
+        }
       }
     } catch (error) {
       console.log(error);
     }
   };
+
+  //searching results
+  const getMoviesBySearching = () => {
+    if (search) {
+      // console.log(search);
+      const searchText =
+        search.charAt(0).toUpperCase() + search.slice(1, search.length);
+      const getMovies = allMovies.filter((each) =>
+        each.title.includes(searchText)
+      );
+      if (getMovies.length) {
+        setAllMovies(getMovies);
+      }
+    }
+  };
+
+  // get a random movie for banner
+  const getBanner = () => {};
+
   return (
     <ContextProvider.Provider
       value={{
@@ -130,6 +164,12 @@ const Context = ({ children }) => {
         setNewPassword,
         allMovies,
         fetchApi,
+        search,
+        setSearch,
+        getMoviesBySearching,
+        getBanner,
+        randomMovie,
+        setRandomMovies,
       }}
     >
       {children}

@@ -16,14 +16,47 @@
   align-items: center;
   flex-direction: row;
   flex-wrap: wrap;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 2;
 }
-.moviePage .appBar h1 {
+.moviePage .appBar .logoAndSearchBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.moviePage .appBar .logoAndSearchBar h1 {
   padding: 0 1rem;
   margin: auto 1px;
   font-weight: 620;
   color: rgb(240, 115, 115);
   font-family: "Babylonica", cursive;
   cursor: pointer;
+}
+.moviePage .appBar .logoAndSearchBar .searchBar input {
+  width: 200px;
+  font-size: 20px;
+  padding: 0.4rem 0.6rem;
+  border: 2px solid #dee9eb;
+  color: #252f44;
+  border-radius: 5px;
+  margin-left: 0px;
+}
+.moviePage .appBar .logoAndSearchBar .searchBar input::-moz-placeholder {
+  color: #848c94;
+}
+.moviePage .appBar .logoAndSearchBar .searchBar input:-ms-input-placeholder {
+  color: #848c94;
+}
+.moviePage .appBar .logoAndSearchBar .searchBar input::placeholder {
+  color: #848c94;
+}
+.moviePage .appBar .logoAndSearchBar .searchBar input:focus {
+  outline: none;
 }
 .moviePage .appBar .identity {
   display: flex;
@@ -45,10 +78,64 @@
   font-family: "Ms Madi", cursive;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
+  .moviePage .appBar .logoAndSearchBar {
+    width: 100%;
+  }
+  .moviePage .appBar .logoAndSearchBar .searchBar {
+    width: 50%;
+  }
+  .moviePage .appBar .logoAndSearchBar .searchBar input {
+    width: 90%;
+    margin-right: 5px;
+  }
+  .moviePage .appBar .logoAndSearchBar .searchBar input:focus {
+    -webkit-animation: border 0.3s linear forwards;
+            animation: border 0.3s linear forwards;
+  }
   .moviePage .appBar .identity {
+    display: none;
     margin: 0px;
     margin-right: 5px;
     padding: 0 0.5rem;
+  }
+}
+@media screen and (min-width: 800px) {
+  .logoAndSearchBar {
+    width: 65%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .logoAndSearchBar .searchBar {
+    width: 60%;
+  }
+  .logoAndSearchBar .searchBar input:focus {
+    -webkit-animation: width 0.3s linear forwards;
+            animation: width 0.3s linear forwards;
+  }
+}
+@-webkit-keyframes border {
+  to {
+    border: 2px solid #c2e2e8;
+  }
+}
+@keyframes border {
+  to {
+    border: 2px solid #c2e2e8;
+  }
+}
+@-webkit-keyframes width {
+  to {
+    width: 300px;
+    border: 2px solid #c2e2e8;
+  }
+}
+@keyframes width {
+  to {
+    width: 300px;
+    border: 2px solid #c2e2e8;
   }
 }/*# sourceMappingURL=styleForMoviePage.css.map */

@@ -2,10 +2,10 @@ import React, { useEffect } from "react";
 import "./styleForMovies.css";
 import { useResultContext } from "../../../context/Context";
 const AllMovies = () => {
-  const { allMovies, fetchApi } = useResultContext();
+  const { allMovies, fetchApi, search } = useResultContext();
   useEffect(() => {
-    fetchApi();
-  }, []);
+    // fetchApi();
+  }, [search]);
   return (
     <>
       <div className="movies">

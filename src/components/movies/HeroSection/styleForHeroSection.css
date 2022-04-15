@@ -1,0 +1,77 @@
+.heroSection {
+  width: 100%;
+  margin-top: 10px;
+  overflow-x: scroll;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+}
+.heroSection .eachMovies {
+  margin: 10px;
+  z-index: 0;
+}
+.heroSection .eachMovies img {
+  width: 300px;
+  height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.heroSection .eachMovies img:hover {
+  -webkit-animation: transform 0.3s 1 forwards;
+          animation: transform 0.3s 1 forwards;
+}
+.heroSection .eachMovies:hover {
+  z-index: 1;
+}
+.heroSection .eachMovies:hover .details {
+  display: inline-block;
+  overflow: hidden;
+  background-color: white;
+}
+.heroSection .eachMovies .details {
+  display: none;
+  width: 100%;
+  z-index: 1;
+}
+.heroSection .eachMovies .details .movieName {
+  font-size: 20px;
+  width: 98%;
+  text-align: left;
+  margin: 10px auto;
+  color: #607d8b;
+}
+.heroSection .eachMovies .details .yearAndRating {
+  margin: 5px 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  color: #827717;
+  font-weight: bold;
+}
+.heroSection .eachMovies .details .yearAndRating span:last-child {
+  color: #525b90;
+}
+
+@-webkit-keyframes transform {
+  from {
+    transform: scale(1, 1);
+  }
+  to {
+    transform: scale(1.05, 1.05);
+  }
+}
+
+@keyframes transform {
+  from {
+    transform: scale(1, 1);
+  }
+  to {
+    transform: scale(1.05, 1.05);
+  }
+}
+/* width */
+::-webkit-scrollbar {
+  width: 0px;
+}/*# sourceMappingURL=styleForHeroSection.css.map */

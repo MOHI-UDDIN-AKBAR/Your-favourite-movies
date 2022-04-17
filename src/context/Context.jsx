@@ -3,7 +3,7 @@ import { createContext, useContext } from "react";
 import { auth } from "../firebase/firebase";
 import createUserWithEmailAndPassword from "../firebase/firebase";
 import { sendPasswordResetEmail } from "firebase/auth";
-
+import data from "../data/data";
 import {
   sendEmailVerification,
   signInWithEmailAndPassword,
@@ -29,7 +29,7 @@ const Context = ({ children }) => {
   });
   const [allMovies, setAllMovies] = useState([]);
   const [search, setSearch] = useState("");
-  const [randomMovie, setRandomMovies] = useState([]);
+  const [randomMovie, setRandomMovies] = useState("");
   const [latestMovies, setLatestMovies] = useState([]);
 
   //send User for Email Verification
@@ -127,13 +127,13 @@ const Context = ({ children }) => {
         setAllMovies(data.results);
         //getting latest movies
         getLatestMovies(data.results);
-        //getting a random number
-        const randomNumber = Math.floor(
-          Math.random() * (data.results.length - 0 + 1)
-        );
-        if (randomNumber) {
-          randomMovie.push(data.results[randomNumber]);
-        }
+        // //getting a random number
+        // const randomNumber = Math.floor(
+        //   Math.random() * (data.results.length - 0 + 1)
+        // );
+        // if (randomNumber) {
+        //   randomMovie.push(data.results[randomNumber]);
+        // }
 
         if (search) {
           // console.log("hello");
@@ -161,7 +161,11 @@ const Context = ({ children }) => {
   };
 
   // get a random movie for banner
-  const getBanner = () => {};
+  const getBanner = () => {
+    const randomNumber = Math.floor(Math.random() * (data.length - 0 + 1));
+    setRandomMovies(data[randomNumber]);
+    console.log(data);
+  };
 
   return (
     <ContextProvider.Provider

@@ -7,9 +7,10 @@ import Banner from "../Banner/Banner";
 import HeroSection from "../HeroSection/HeroSection";
 import { useResultContext } from "../../../context/Context";
 const MoviePage = () => {
-  const { search, setSearch, fetchApi } = useResultContext();
+  const { search, setSearch, fetchApi, getBanner } = useResultContext();
   useEffect(() => {
     fetchApi();
+    getBanner();
   }, []);
   return (
     <>

@@ -28,6 +28,8 @@ $Color-Six: rgb(109, 109, 232);
     z-index: 2;
     .logoAndSearchBar {
       @include flex(space-between, row);
+      background-color: white;
+
       h1 {
         padding: 0 1rem;
         margin: auto 1px;

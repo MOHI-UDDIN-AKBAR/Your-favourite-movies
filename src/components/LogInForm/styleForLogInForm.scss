@@ -12,14 +12,19 @@ $Color-Six: rgb(109, 109, 232);
   flex-direction: $direction;
   flex-wrap: wrap;
 }
+
+.login {
+  height: 100vh;
+  @include flex(center, row);
+}
 .logInForm {
-  width: 590px;
-  padding: 6rem 0rem;
+  width: 550px;
+  padding: 3rem 0rem;
   background-color: $Color-One;
   margin: 0 auto;
   @include flex(center, column);
   box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.1);
-  transform: translateY(11%);
+  // transform: translateY(5%);
   .logInWithGoogle {
     width: 70%;
     @include flex(center, row);

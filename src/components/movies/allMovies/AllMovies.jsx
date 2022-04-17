@@ -4,7 +4,7 @@ import { useResultContext } from "../../../context/Context";
 const AllMovies = () => {
   const { allMovies, fetchApi, search } = useResultContext();
   useEffect(() => {
-    // fetchApi();
+    fetchApi();
   }, [search]);
   return (
     <>

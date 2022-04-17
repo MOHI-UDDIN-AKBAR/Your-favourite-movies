@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { createContext, useContext } from "react";
 import { auth } from "../firebase/firebase";
 import createUserWithEmailAndPassword from "../firebase/firebase";
-import { sendPasswordResetEmail } from "firebase/auth";
+import { sendPasswordResetEmail, onAuthStateChanged } from "firebase/auth";
 import data from "../data/data";
 import {
   sendEmailVerification,
@@ -31,6 +31,8 @@ const Context = ({ children }) => {
   const [search, setSearch] = useState("");
   const [randomMovie, setRandomMovies] = useState("");
   const [latestMovies, setLatestMovies] = useState([]);
+  const [currentUserEmail, setCurrentUserEmail] = useState("");
+  const [isUser, setIsUser] = useState(null);
 
   //send User for Email Verification
   const sendUserEmailVerification = () => {
@@ -63,6 +65,7 @@ const Context = ({ children }) => {
             if (user) {
               sendUserEmailVerification();
             }
+            // getCurrentUser();
             window.location.assign("/movies");
           })
           .catch((error) => {
@@ -80,8 +83,10 @@ const Context = ({ children }) => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
-        // const user = userCredential.user;
-
+        const user = userCredential.user;
+        console.log(user.email);
+        // setCurrentUserEmail(user.email);
+        // getCurrentUser();
         window.location.assign("/movies");
 
         // ...
@@ -164,8 +169,43 @@ const Context = ({ children }) => {
   const getBanner = () => {
     const randomNumber = Math.floor(Math.random() * (data.length - 0 + 1));
     setRandomMovies(data[randomNumber]);
-    console.log(data);
+    // console.log(data);
   };
+  //get current user info
+  const getCurrentUser = () => {
+    // const user = auth.currentUser;
+    // console.log(user);
+    // if (user !== null) {
+    //   // The user object has basic properties such as display name, email, etc.
+    //   const displayName = user.displayName;
+    //   const email = user.email;
+    //   const photoURL = user.photoURL;
+    //   const emailVerified = user.emailVerified;
+
+    //   // The user's ID, unique to the Firebase project. Do NOT use
+    //   // this value to authenticate with your backend server, if
+    //   const uid = user.uid;
+    //   // console.log(displayName, email, photoURL, emailVerified, uid);
+    //   setIsUser(user);
+    //   setCurrentUserEmail(email);
+    // }
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/firebase.User
+        const uid = user.uid;
+        // ...
+        setIsUser(user);
+        setCurrentUserEmail(user.email);
+      } else {
+        // User is signed out
+        // ...
+      }
+    });
+  };
+  // useEffect(() => {
+  //   getCurrentUser();
+  // }, []);
 
   return (
     <ContextProvider.Provider
@@ -187,6 +227,9 @@ const Context = ({ children }) => {
         randomMovie,
         setRandomMovies,
         latestMovies,
+        currentUserEmail,
+        getCurrentUser,
+        isUser,
       }}
     >
       {children}

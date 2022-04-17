@@ -34,7 +34,7 @@ const MoviePage = () => {
           </div>
         </div>
         <Banner />
-        {/* <HeroSection /> */}
+        <HeroSection />
         <AllMovies />
         <FooterForMoviePage />
       </div>

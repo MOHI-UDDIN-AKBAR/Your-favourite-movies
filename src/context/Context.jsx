@@ -30,6 +30,8 @@ const Context = ({ children }) => {
   const [allMovies, setAllMovies] = useState([]);
   const [search, setSearch] = useState("");
   const [randomMovie, setRandomMovies] = useState([]);
+  const [latestMovies, setLatestMovies] = useState([]);
+
   //send User for Email Verification
   const sendUserEmailVerification = () => {
     sendEmailVerification(auth.currentUser).then(() => {
@@ -104,6 +106,14 @@ const Context = ({ children }) => {
         // ..
       });
   };
+  //getting latest movies
+  const getLatestMovies = (movies) => {
+    // console.log(movies[0].year);
+    let newMovies = movies.filter(
+      (movie) => movie.year == "2014" || movie.year == "2015"
+    );
+    setLatestMovies(newMovies);
+  };
   //fetching movie api
   const fetchApi = async () => {
     try {
@@ -115,6 +125,8 @@ const Context = ({ children }) => {
       if (data) {
         // console.log(data.results);
         setAllMovies(data.results);
+        //getting latest movies
+        getLatestMovies(data.results);
         //getting a random number
         const randomNumber = Math.floor(
           Math.random() * (data.results.length - 0 + 1)
@@ -133,7 +145,7 @@ const Context = ({ children }) => {
     }
   };
 
-  //searching results
+  //get movies by searching
   const getMoviesBySearching = () => {
     if (search) {
       // console.log(search);
@@ -170,6 +182,7 @@ const Context = ({ children }) => {
         getBanner,
         randomMovie,
         setRandomMovies,
+        latestMovies,
       }}
     >
       {children}

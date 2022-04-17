@@ -1,17 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useResultContext } from "../../../context/Context";
 import "./styleForHeroSection.css";
 const HeroSection = () => {
-  const tab = [1, 4, 3, 4, 3, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5];
+  const { latestMovies } = useResultContext();
+
   return (
     <>
       <div className="heroSection">
         {/* <div className="mostRecent"> */}
-        {tab?.map((_, i) => {
+        {latestMovies?.map((eachMovie, i) => {
+          const { image, title } = eachMovie;
+
           return (
             <div className="eachMovies" key={i}>
               <img
-                src="http://source.unsplash.com/random"
-                alt="movies"
+                src={image ? image : "http://source.unsplash.com/random"}
+                alt={title ? title : "movies"}
                 loading="lazy"
               />
               {/* <div className="details">

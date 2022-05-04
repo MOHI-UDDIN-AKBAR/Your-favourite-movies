@@ -6,6 +6,7 @@ import "./styleForMoviePage.css";
 import Banner from "../Banner/Banner";
 import HeroSection from "../HeroSection/HeroSection";
 import { useResultContext } from "../../../context/Context";
+import LoginForm from "../../LogInForm/LoginForm";
 const MoviePage = () => {
   const {
     search,
@@ -14,12 +15,16 @@ const MoviePage = () => {
     getBanner,
     getCurrentUser,
     currentUserEmail,
+    getPermission,
   } = useResultContext();
   useEffect(() => {
     fetchApi();
     getBanner();
     // getCurrentUser();
   }, []);
+  if (!getPermission) {
+    return <LoginForm />;
+  }
   return (
     <>
       <div className="moviePage">

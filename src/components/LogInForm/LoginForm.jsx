@@ -8,6 +8,7 @@ const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { loginFunction, setNewPassword } = useResultContext();
+  const [rerender, serRerender] = useState(false);
   const handleLogin = () => {
     console.log(email, password);
     if (email && password) {
@@ -56,9 +57,35 @@ const LoginForm = () => {
           <span className="forgetPassword" onClick={handleForgetPassword}>
             Forget Password?
           </span>
-          <button type="button" onClick={handleLogin}>
+          <Link
+            to={"/movies"}
+            style={{
+              textDecoration: "none",
+              color: "inherit",
+              width: "100%",
+              margin: "0 auto",
+            }}
+          >
+            <button
+              type="button"
+              onClick={handleLogin}
+              style={{ width: "70%", margin: "0 15%" }}
+            >
+              Log in
+            </button>
+          </Link>
+          {/* <button type="button" onClick={handleLogin}>
             Log in
-          </button>
+            <Link
+              to={getPermission ? "/movies" : "/"}
+              style={{
+                textDecoration: "none",
+                color: "inherit",
+                width: "100%",
+                margin: "0 auto",
+              }}
+            ></Link> */}
+          {/* </button> */}
         </div>
         <span className="forSignUp">
           Don't have an account ?

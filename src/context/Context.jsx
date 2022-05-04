@@ -33,6 +33,7 @@ const Context = ({ children }) => {
   const [latestMovies, setLatestMovies] = useState([]);
   const [currentUserEmail, setCurrentUserEmail] = useState("");
   const [isUser, setIsUser] = useState(null);
+  const [getPermission, setGetPermission] = useState(false);
 
   //send User for Email Verification
   const sendUserEmailVerification = () => {
@@ -66,7 +67,8 @@ const Context = ({ children }) => {
               sendUserEmailVerification();
             }
             // getCurrentUser();
-            window.location.assign("/movies");
+
+            // window.location.assign("/movies");
           })
           .catch((error) => {
             // const errorCode = error.code;
@@ -87,8 +89,9 @@ const Context = ({ children }) => {
         console.log(user.email);
         // setCurrentUserEmail(user.email);
         // getCurrentUser();
-        window.location.assign("/movies");
+        // window.location.assign("/movies");
 
+        setGetPermission(true);
         // ...
       })
       .catch((error) => {
@@ -230,6 +233,7 @@ const Context = ({ children }) => {
         currentUserEmail,
         getCurrentUser,
         isUser,
+        getPermission,
       }}
     >
       {children}

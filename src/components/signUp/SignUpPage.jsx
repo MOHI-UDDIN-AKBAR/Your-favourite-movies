@@ -76,8 +76,17 @@ const SignUpPage = () => {
               }
             />
           </div>
-
-          <button onClick={addPerson}>Sign Up</button>
+          <Link
+            to={"/"}
+            style={{
+              textDecoration: "none",
+              color: "inherit",
+              width: "100%",
+              margin: "0 auto",
+            }}
+          >
+            <button onClick={addPerson}>Sign Up</button>
+          </Link>
         </div>
       </div>
     </>

@@ -33,7 +33,8 @@ const Context = ({ children }) => {
   const [latestMovies, setLatestMovies] = useState([]);
   const [currentUserEmail, setCurrentUserEmail] = useState("");
   const [isUser, setIsUser] = useState(null);
-  const [getPermission, setGetPermission] = useState(false);
+  const [getPermission, setGetPermission] = useState(true);
+  const [errorMessage, setErrorMessage] = useState("");
 
   //send User for Email Verification
   const sendUserEmailVerification = () => {
@@ -85,19 +86,22 @@ const Context = ({ children }) => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
-        const user = userCredential.user;
-        console.log(user.email);
+        // const user = userCredential.user;
+        // console.log(user.email);
         // setCurrentUserEmail(user.email);
         // getCurrentUser();
         // window.location.assign("/movies");
-
         setGetPermission(true);
+        setErrorMessage("");
+
         // ...
       })
       .catch((error) => {
         // const errorCode = error.code;
-        // const errorMessage = error.message;
-        console.log(error.message);
+        setErrorMessage("Email or Password is not correct");
+        // console.log(error.message);
+        setGetPermission(false);
+        console.log(error);
       });
   };
   //set new password
@@ -234,6 +238,7 @@ const Context = ({ children }) => {
         getCurrentUser,
         isUser,
         getPermission,
+        errorMessage,
       }}
     >
       {children}

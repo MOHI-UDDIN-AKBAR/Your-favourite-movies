@@ -7,7 +7,7 @@ import Banner from "../movies/Banner/Banner";
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { loginFunction, setNewPassword } = useResultContext();
+  const { loginFunction, setNewPassword, errorMessage } = useResultContext();
   const [rerender, serRerender] = useState(false);
   const handleLogin = () => {
     console.log(email, password);
@@ -54,6 +54,7 @@ const LoginForm = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
+          <small>{errorMessage ? errorMessage : ""}</small>
           <span className="forgetPassword" onClick={handleForgetPassword}>
             Forget Password?
           </span>

@@ -89,13 +89,18 @@ $Color-Six: rgb(109, 109, 232);
       margin-top: 40px;
     }
   }
+  small {
+    margin-top: 3px;
+    color: rgb(201, 28, 28);
+  }
   .forgetPassword {
     color: $Color-Six;
     font-size: 18px;
     font-weight: bold;
-    padding: 0.5rem 0;
+    // padding: 0.5rem 0;
     text-align: left;
     cursor: pointer;
+    margin: 20px 0;
   }
   button {
     width: 70%;

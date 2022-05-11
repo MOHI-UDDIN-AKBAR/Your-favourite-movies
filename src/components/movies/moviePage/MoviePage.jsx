@@ -7,6 +7,7 @@ import Banner from "../Banner/Banner";
 import HeroSection from "../HeroSection/HeroSection";
 import { useResultContext } from "../../../context/Context";
 import LoginForm from "../../LogInForm/LoginForm";
+import { useNavigate } from "react-router-dom";
 const MoviePage = () => {
   const {
     search,
@@ -22,9 +23,12 @@ const MoviePage = () => {
     getBanner();
     // getCurrentUser();
   }, []);
-  if (!getPermission) {
-    return <LoginForm />;
+  const navigate = useNavigate();
+  // useEffect(() => {}, []);
+  if (getPermission == false) {
+    return navigate(-1);
   }
+
   return (
     <>
       <div className="moviePage">

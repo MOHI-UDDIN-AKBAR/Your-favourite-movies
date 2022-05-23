@@ -1,0 +1,69 @@
+.movieDetails {
+  width: 100%;
+  height: 100vh;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.movieDetails .image {
+  width: 30%;
+}
+.movieDetails .image img {
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.movieDetails .details {
+  width: 55%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 1rem;
+  margin-top: 0;
+}
+.movieDetails .details h1 {
+  color: rgb(97, 131, 190);
+}
+.movieDetails .details p {
+  width: 80%;
+  font-size: 18px;
+  color: rgb(55, 55, 55);
+}
+.movieDetails .details .ratingAndDate {
+  margin-top: 20px;
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.movieDetails .details .ratingAndDate .rating {
+  color: rgb(55, 168, 55);
+}
+.movieDetails .details .ratingAndDate .release {
+  font-weight: 900;
+  color: purple;
+}
+
+@media screen and (max-width: 700px) {
+  .movieDetails {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .movieDetails .image {
+    width: 90%;
+  }
+  .movieDetails .details {
+    width: 90%;
+  }
+}/*# sourceMappingURL=styleForMovieDetails.css.map */

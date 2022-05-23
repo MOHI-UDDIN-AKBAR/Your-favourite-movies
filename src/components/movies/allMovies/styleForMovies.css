@@ -17,6 +17,7 @@
   height: 400px;
   -o-object-fit: cover;
      object-fit: cover;
+  cursor: pointer;
 }
 .movies .eachMovies .movieName {
   font-size: 20px;

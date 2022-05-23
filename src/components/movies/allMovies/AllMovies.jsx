@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import "./styleForMovies.css";
 import { useResultContext } from "../../../context/Context";
+import { Link } from "react-router-dom";
 const AllMovies = () => {
   const { allMovies, fetchApi, search } = useResultContext();
   useEffect(() => {
@@ -13,7 +14,9 @@ const AllMovies = () => {
           const { image, title, rating, year, _id } = eachMovie;
           return (
             <div className="eachMovies" key={_id}>
-              <img src={image} alt={title} loading="lazy" />
+              <Link to={`/movieDetails/${_id}`}>
+                <img src={image} alt={title} loading="lazy" />
+              </Link>
               <h1 className="movieName">{title}</h1>
               <div className="yearAndRating">
                 <span className="year">{year}</span>

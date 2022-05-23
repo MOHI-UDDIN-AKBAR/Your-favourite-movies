@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Babylonica&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
 .moviePage {
   display: flex;
   justify-content: center;
@@ -7,6 +8,8 @@
   flex-direction: column;
   flex-wrap: wrap;
   background-color: white;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
 }
 .moviePage .appBar {
   width: 100%;
@@ -87,7 +90,7 @@
     width: 50%;
   }
   .moviePage .appBar .logoAndSearchBar .searchBar input {
-    width: 90%;
+    width: 80%;
     margin-right: 5px;
   }
   .moviePage .appBar .logoAndSearchBar .searchBar input:focus {

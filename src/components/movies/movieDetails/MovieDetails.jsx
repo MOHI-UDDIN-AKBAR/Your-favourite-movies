@@ -46,13 +46,3 @@ const MovieDetails = () => {
 };
 
 export default MovieDetails;
-
-// <div className="eachMovies">
-// <img src={newMovie.image} alt={newMovie.title} loading="lazy" />
-
-// <h1 className="movieName">{newMovie.title}</h1>
-// <div className="yearAndRating">
-//   <span className="year">{newMovie.year}</span>
-//   <span className="rating">{newMovie.rating.slice(0, 1)}</span>
-// </div>
-// </div>

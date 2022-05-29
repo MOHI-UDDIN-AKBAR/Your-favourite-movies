@@ -34,6 +34,7 @@
 }
 .footer .objects span {
   padding: 0.5rem 1.5rem;
+  cursor: pointer;
 }
 .footer h4 {
   text-align: center;

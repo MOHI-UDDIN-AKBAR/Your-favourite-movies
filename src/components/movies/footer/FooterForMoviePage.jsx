@@ -4,6 +4,7 @@ import { TiSocialTwitter } from "react-icons/ti";
 import { AiFillInstagram } from "react-icons/ai";
 import { BsFacebook } from "react-icons/bs";
 import "./styleForFooter.css";
+import { Link } from "react-router-dom";
 const FooterForMoviePage = () => {
   const footerObjects = [
     "Help",
@@ -32,7 +33,12 @@ const FooterForMoviePage = () => {
         </div>
         <div className="objects">
           {footerObjects?.map((each, i) => (
-            <span key={i}>{each}</span>
+            <Link
+              to={`/additionalDetails/${each}`}
+              style={{ color: "inherit", textDecoration: "none" }}
+            >
+              <span key={i}>{each}</span>
+            </Link>
           ))}
         </div>
         <h4>&copy; all rights reserved</h4>

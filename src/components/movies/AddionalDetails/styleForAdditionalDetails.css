@@ -6,6 +6,8 @@
   align-items: center;
   margin: 0 auto;
   margin-top: 30vh;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
 }
 .additionalDetails h1 {
   color: rgb(117, 117, 205);
@@ -20,7 +22,7 @@
 
 @media screen and (max-width: 600px) {
   .additionalDetails {
-    margin-top: 5vh;
+    margin-top: 15vh;
   }
   .additionalDetails h1 {
     font-size: 20px;

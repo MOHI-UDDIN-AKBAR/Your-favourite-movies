@@ -29,6 +29,7 @@
 }
 .movieDetails .details h1 {
   color: rgb(97, 131, 190);
+  font-size: 25px;
 }
 .movieDetails .details p {
   width: 80%;
@@ -65,5 +66,11 @@
   }
   .movieDetails .details {
     width: 90%;
+  }
+  .movieDetails .details h1 {
+    font-size: 20px;
+  }
+  .movieDetails .details p {
+    font-size: 16px;
   }
 }/*# sourceMappingURL=styleForMovieDetails.css.map */

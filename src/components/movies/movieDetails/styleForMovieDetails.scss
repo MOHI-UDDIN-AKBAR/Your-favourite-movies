@@ -29,6 +29,7 @@
     margin-top: 0;
     h1 {
       color: rgb(97, 131, 190);
+      font-size: 25px;
     }
     p {
       width: 80%;
@@ -57,6 +58,12 @@
     }
     .details {
       width: 90%;
+      h1 {
+        font-size: 20px;
+      }
+      p {
+        font-size: 16px;
+      }
     }
   }
 }

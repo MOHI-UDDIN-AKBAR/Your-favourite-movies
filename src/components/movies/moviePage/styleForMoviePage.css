@@ -40,6 +40,16 @@
   color: rgb(240, 115, 115);
   font-family: "Babylonica", cursive;
   cursor: pointer;
+  position: relative;
+}
+.moviePage .appBar .logoAndSearchBar h1 .icon {
+  font-size: 2.5rem;
+  position: absolute;
+  color: #252f44;
+  padding-left: 1rem;
+}
+.moviePage .appBar .logoAndSearchBar .movieIcon {
+  margin-left: -5rem;
 }
 .moviePage .appBar .logoAndSearchBar .searchBar input {
   width: 200px;
@@ -86,6 +96,11 @@
   .moviePage .appBar .logoAndSearchBar {
     width: 100%;
   }
+  .moviePage .appBar .logoAndSearchBar h1 .icon {
+    font-size: 2rem;
+    margin-top: 0.2rem;
+    padding-left: 0.2rem;
+  }
   .moviePage .appBar .logoAndSearchBar .searchBar {
     width: 50%;
   }
@@ -112,6 +127,9 @@
     align-items: center;
     flex-direction: row;
     flex-wrap: wrap;
+  }
+  .logoAndSearchBar h1 .icon {
+    padding-left: -1rem;
   }
   .logoAndSearchBar .searchBar {
     width: 60%;

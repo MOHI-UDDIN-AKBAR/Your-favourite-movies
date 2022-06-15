@@ -39,6 +39,16 @@ $Color-Six: rgb(109, 109, 232);
         color: rgb(240, 115, 115);
         font-family: "Babylonica", cursive;
         cursor: pointer;
+        position: relative;
+        .icon {
+          font-size: 2.5rem;
+          position: absolute;
+          color: #252f44;
+          padding-left: 1rem;
+        }
+      }
+      .movieIcon {
+        margin-left: -5rem;
       }
       .searchBar {
         input {
@@ -83,6 +93,13 @@ $Color-Six: rgb(109, 109, 232);
     .appBar {
       .logoAndSearchBar {
         width: 100%;
+        h1 {
+          .icon {
+            font-size: 2rem;
+            margin-top: 0.2rem;
+            padding-left: 0.2rem;
+          }
+        }
         .searchBar {
           width: 50%;
           input {
@@ -107,6 +124,11 @@ $Color-Six: rgb(109, 109, 232);
   .logoAndSearchBar {
     width: 65%;
     @include flex(center, row);
+    h1 {
+      .icon {
+        padding-left: -1rem;
+      }
+    }
     .searchBar {
       width: 60%;
       input {
